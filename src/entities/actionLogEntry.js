@@ -41,6 +41,6 @@ module.exports = {
   entityDeletedEntry: (user, entityType, entityId) =>
     create(null, '', user, entityType, entityId, actions.entity.delete),
   fullPublishEntry: user =>
-    create(null, '', user, 'fullsite', 0, actions.publish.full),
+    create(null, '', user, 'full', 0, actions.publish.full),
   actions
 };

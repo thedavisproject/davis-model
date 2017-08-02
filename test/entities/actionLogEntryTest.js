@@ -65,7 +65,7 @@ describe('Log Entry', function() {
     expect(entry.name).to.equal('');
     expect(entry.user).to.equal(100);
     expect(entry.subjectType).to.equal('full');
-    expect(entry.subjectId).to.be.null;
+    expect(entry.subjectId).to.equal(0);
     expect(entry.action).to.equal('PUBLISH-FULL');
   });
 
