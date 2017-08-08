@@ -44,39 +44,76 @@ describe('Variable', function() {
 
   });
 
-  describe('Quantitiative', function(){
+  describe('Numerical', function(){
 
-    const quantitative = variable.newQuantitative(123, 'Quant'),
-      quantitativeWithProps = variable.newCategorical(321, 'tnauQ', {
+    const numerical = variable.newNumerical(123, 'Num'),
+      numericalWithProps = variable.newNumerical(321, 'muN', {
         scopedDataSet: 5,
         key: 'baz'
       });
 
     it('should be an entity of type "Variable"', function() {
-      assertIsEntity('variable', 123, 'Quant', quantitative);
+      assertIsEntity('variable', 123, 'Num', numerical);
     });
 
-    it('should initialize the variable type to "quantitative"', function() {
-      expect(quantitative.type).to.equal(variable.types.quantitative);
+    it('should initialize the variable type to "numerical"', function() {
+      expect(numerical.type).to.equal(variable.types.numerical);
     });
 
     it('shouldnt override special props', function(){
-      expect(quantitativeWithProps.scopedDataSet).to.equal(5);
-      expect(quantitativeWithProps.key).to.equal('baz');
+      expect(numericalWithProps.scopedDataSet).to.equal(5);
+      expect(numericalWithProps.key).to.equal('baz');
     });
 
     it('saves extra properties', function(){
-      expect(variable.newQuantitative(123, 'Foo', { p1: 'Baz' }))
+      expect(variable.newNumerical(123, 'Foo', { p1: 'Baz' }))
         .to.have.property('p1').and.equal('Baz');
     });
 
     it('should init format to null', function(){
-      expect(variable.newQuantitative(123, 'Foo'))
+      expect(variable.newNumerical(123, 'Foo'))
         .to.have.property('format').and.to.be.null;
     });
 
     it('should be immutable', function(){
-      assertIsImmutable(quantitative);
+      assertIsImmutable(numerical);
+    });
+
+  });
+
+  describe('Text', function(){
+
+    const textVar = variable.newText(123, 'Text'),
+      textVarWithProps = variable.newText(321, 'txeT', {
+        scopedDataSet: 5,
+        key: 'baz'
+      });
+
+    it('should be an entity of type "Variable"', function() {
+      assertIsEntity('variable', 123, 'Text', textVar);
+    });
+
+    it('should initialize the variable type to "text"', function() {
+      expect(textVar.type).to.equal(variable.types.text);
+    });
+
+    it('shouldnt override special props', function(){
+      expect(textVarWithProps.scopedDataSet).to.equal(5);
+      expect(textVarWithProps.key).to.equal('baz');
+    });
+
+    it('saves extra properties', function(){
+      expect(variable.newText(123, 'Foo', { p1: 'Baz' }))
+        .to.have.property('p1').and.equal('Baz');
+    });
+
+    it('should init format to null', function(){
+      expect(variable.newText(123, 'Foo'))
+        .to.have.property('format').and.to.be.null;
+    });
+
+    it('should be immutable', function(){
+      assertIsImmutable(textVar);
     });
 
   });

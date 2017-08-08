@@ -10,11 +10,19 @@ module.exports = {
     };
   },
 
-  newQuantitative: (variable, value) => {
+  newNumerical: (variable, value) => {
     return {
       variable: variable,
-      type: variables.types.quantitative,
+      type: variables.types.numerical,
       value: R.isNil(value)? null : parseFloat(value)
+    };
+  },
+
+  newText: (variable, value) => {
+    return {
+      variable: variable,
+      type: variables.types.text,
+      value: R.isNil(value)? null : value.toString()
     };
   }
 };

@@ -64,7 +64,7 @@ Incorporates all properties from: *Entity*
 
 ### Properties
 * type : _enum_ : _required_
-    * categorical (1) or quantitative (2)
+    * categorical (1), numerical (2), text (3)
 * key : _string_ : _required_
     * If not specified, defaults to the entity name. Used to match variables to row headers on import. Also used for general cases where a human friendly key is needed.
 * scopedDataSet : _id_ : _optional_

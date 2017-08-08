@@ -6,7 +6,8 @@ const entityType = 'variable';
 
 const types = {
   categorical: 1,
-  quantitative: 2
+  numerical: 2,
+  text: 3
 };
 
 function variable(id, name, typeId, props){
@@ -30,8 +31,12 @@ const newCategorical = (id, name, props) => {
   return variable(id, name, types.categorical, props);
 };
 
-const newQuantitative = (id, name, props) => {
-  return variable(id, name, types.quantitative, props);
+const newNumerical = (id, name, props) => {
+  return variable(id, name, types.numerical, props);
+};
+
+const newText = (id, name, props) => {
+  return variable(id, name, types.text, props);
 };
 
 module.exports = {
@@ -39,5 +44,6 @@ module.exports = {
   types,
   fromTypeId,
   newCategorical,
-  newQuantitative
+  newNumerical,
+  newText
 };
