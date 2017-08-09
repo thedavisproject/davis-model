@@ -27,10 +27,6 @@ describe('Log Entry', function() {
     expect(obj.action).to.equal('action-name');
   });
 
-  it('should set the action', function(){
-    expect(obj.action).to.equal('action-name');
-  });
-
   const testEntity = entity.new('test-type', 55, 'test-name');
 
   it('should build entity create log entry', function(){
