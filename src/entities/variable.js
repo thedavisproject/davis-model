@@ -43,6 +43,7 @@ module.exports = {
   entityType,
   types,
   fromTypeId,
+  new: variable,
   newCategorical,
   newNumerical,
   newText
