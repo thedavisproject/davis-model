@@ -25,7 +25,10 @@ module.exports = {
       entity.new(entityType, id, name),
       {
         email,
-        admin: false
+        // Is the use an Admin (super user)
+        admin: false,
+        // Does the user have access to the GUI tool
+        gui: false
       },
       props);
 
