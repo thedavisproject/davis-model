@@ -3,7 +3,7 @@
 ## Query syntax
 
 Query expressions use a prefix/Polish/lisp style. Each sub-expression in the query
-is encapsulated in an array, where the first position is the operator and the 
+is encapsulated in an array, where the first position is the operator and the
 remaining positions are the arguments to the operator.
 
 Any expression (logical or comparison) may be nested inside of a logical expression.
@@ -22,7 +22,7 @@ Example
     [ "in", "id", [1,2,3,4] ]  // id in (1,2,3,4)
 
 Rules:
-* Comparison expressions will always have a length of 3 (operator + 2 arguments). 
+* Comparison expressions will always have a length of 3 (operator + 2 arguments).
 * The first argument must always be a string (property identifier)
 * The second argument depends on the operator and the type of the property
 
@@ -34,10 +34,10 @@ Possible operators: *and, or, not, nor*
 
 Example:
 
-    [ "and", 
-        [ "=", "name", "Foo" ], 
+    [ "and",
+        [ "=", "name", "Foo" ],
         [ ">", "modified", "12/1/2016" ]
-    ] 
+    ]
     // (name = "Foo") AND (modified > 12/1/2016)
 
     [ "not",
@@ -51,11 +51,11 @@ Rules:
 
 ## Deep nesting Example
 
-    [ "or", 
-        [ "not", 
+    [ "or",
+        [ "not",
             [ ">", "date", "12/1/2016"]
         ],
-        [ "and", 
+        [ "and",
             [ "=", "published", "false" ],
             [ "=", "modified", "true" ],
             [ "in", "id", [1,2,3] ]
@@ -75,6 +75,6 @@ Options for manipulating query results.
     },
     // The number of results to fetch
     take: number,
-    // The number of resutls to skip
+    // The number of results to skip
     skip: number
   }
